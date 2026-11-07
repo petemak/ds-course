@@ -1,0 +1,14 @@
+{;; Directories put on the classpath: `course.data` resolves to src/course/data.clj,
+ ;; notebook namespaces to files in notebooks/, test namespaces to files in test/.
+ :paths ["src" "notebooks" "test"]
+
+ :deps  {org.clojure/clojure {:mvn/version "1.12.0"}
+         ;; Noj is a single dependency that pulls in a tested, mutually compatible set of
+         ;; data-science libraries: tablecloth, tech.ml.dataset, fastmath, tableplot,
+         ;; metamorph.ml, kindly and clay. Check https://clojars.org/org.scicloj/noj
+         ;; for the newest version.
+         org.scicloj/noj     {:mvn/version "2-beta18"}}
+
+ :aliases {;; Start the REPL with `clj -M:dev`. -Xmx4g lets the JVM use up to 4 GB of heap,
+           ;; plenty for the datasets in this course and most real CSVs.
+           :dev {:jvm-opts ["-Xmx4g"]}}}
